@@ -10,8 +10,8 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  align-items: center;
 }
 
 div#root {
@@ -29,12 +29,14 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .dice-elements {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
   gap: 20px;
+  width: 80%;
 }
 
 .dice-elements button {
@@ -42,21 +44,79 @@ main {
   width: 50px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  border: none;
-  background-color: white;
   font-family: Karla, sans-serif;
   font-size: 1.75rem;
   font-weight: bold;
   cursor: pointer;
+  border: none;
 }
 #update-button {
   display: flex;
-  margin-top: 20px;
+  white-space: nowrap;
+  margin-top: 30px;
+  padding: 10px;
   border: none;
   font-size: 23px;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  padding: 5px;
+  transition: 0.3s;
+  background-color: #0b2434;
+  color: white;
 }
+#update-button:hover {
+  background-color: #113852;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
 .dice-elements button:hover {
-  background-color: orange;
+  background-color: cornflowerblue;
+}
+/* Firework container */
+.firework-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+.sr-only{
+  display: none;
+}
+
+/* Each firework burst */
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: red;
+  animation: explode 1s ease-out forwards;
+  opacity: 0.8;
+}
+
+/* Random colors */
+.firework:nth-child(3n) {
+  background-color: yellow;
+}
+.firework:nth-child(4n) {
+  background-color: green;
+}
+.firework:nth-child(5n) {
+  background-color: blue;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(50);
+    opacity: 0;
+  }
 }
