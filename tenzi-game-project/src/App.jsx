@@ -9,7 +9,7 @@ export default function App() {
     let numbersArr = [];
     for (let i = 0; i < 10; i++) {
       numbersArr.push({
-        value: 5, // Math.ceil(Math.random() * 6),
+        value: Math.ceil(Math.random() * 6),
         isHeld: false,
         id: nanoid(),
       });
