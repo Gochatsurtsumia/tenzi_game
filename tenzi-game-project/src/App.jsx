@@ -67,6 +67,7 @@ export default function App() {
   }, [hasWon]);
   return (
     <main>
+      <h1>Tenzi Game</h1>
       {fireworks}
       <div aria-live="polite" className="sr-only">
         {hasWon && <p>Congrats, you have won </p>}
